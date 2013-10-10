@@ -12,7 +12,7 @@ Harrison Stahl / The Everything Corp
 #include "btn.h"
 
 
-
+// when intialized it sets the pin to input and turns on the internal pull up.
 btn::btn(uint8_t pin, uint16_t repeatDelay){
 	pinMode(pin, INPUT);
 	digitalWrite(pin, HIGH);
@@ -21,6 +21,11 @@ btn::btn(uint8_t pin, uint16_t repeatDelay){
   press = false;
   prev = false;
 }
+
+//state: this is where you put your function i.e. digitalRead(pin), or btn1.press && btn2.press
+//clearMenu: When true it will put a lock on the repeat counter and zeros it so it wont affect
+// the repeat count until it is lifted and pressed again so if you hold to get into a menu it 
+// won't go crazy because it sees the repeat count from getting into the menu. 
 
 void btn::state(boolean state, boolean clearMenu){
 	if(state){
@@ -60,8 +65,8 @@ void btn::state(boolean state, boolean clearMenu){
   prev = press;
 }
 
-void btn::pinState(boolean clearMenu){
-	if(digitalRead(_pin) == LOW){
+void btn::pinState(boolean clearMenu){ //check the state of the pin defined in the setup funciton
+	if(digitalRead(_pin) == LOW){ // do not use this if you are using it for combos use state instead
 		state(true,clearMenu);
 	}
 	else{
