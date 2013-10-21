@@ -1,11 +1,10 @@
-# file generated using https://github.com/Harryman/Arduino-header-keyword-creator
 ##################################
 # Class Name
 ##################################
-btn KEYWORD1
+btn	KEYWORD1
 
 ##################################
 # Methods/Functions 
 ##################################
-state KEYWORD2
-pinState KEYWORD2
+state	KEYWORD2
+pinState	KEYWORD2
