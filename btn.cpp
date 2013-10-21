@@ -2,18 +2,22 @@
 to use when making menues with using delays or other blocking 
 code. 
 
-*** DO NOT USE BOTH FUNCTIONS IN THE SAME INSTANCE ***
+supports combos or anything you put that evals to a boolean
+
+look at the example for usage. 
+
+Do not use both functions in the same instance, it will break eaisly so be careful if you do
 
 Open source, attribution appreciated
 Harrison Stahl / The Everything Corp
+Beerfund(bitcoin): 1HGxiDZZPzj5ctKSni4xn9UVHYPu4BRuCQ
 9/9/13 */
 
-#include "Arduino.h"
 #include "btn.h"
+#include "Arduino.h"
 
 
-// when intialized it sets the pin to input and turns on the internal pull up.
-btn::btn(uint8_t pin, uint16_t repeatDelay){
+btn::btn(uint8_t pin, uint16_t repeatDelay){// when intialized it sets the pin to input and turns on the internal pull up.
 	pinMode(pin, INPUT);
 	digitalWrite(pin, HIGH);
 	_pin = pin;
@@ -22,11 +26,10 @@ btn::btn(uint8_t pin, uint16_t repeatDelay){
   prev = false;
 }
 
-//state: this is where you put your function i.e. digitalRead(pin), or btn1.press && btn2.press
-//clearMenu: When true it will put a lock on the repeat counter and zeros it so it wont affect
-// the repeat count until it is lifted and pressed again so if you hold to get into a menu it 
-// won't go crazy because it sees the repeat count from getting into the menu. 
-
+/*state: this is where you put your function i.e. digitalRead(pin), or btn1.press && btn2.press
+  clearMenu: When true it will put a lock on the repeat counter and zeros it so it wont affect
+  the repeat count until it is lifted and pressed again so if you hold to get into a menu it 
+  won't go crazy because it sees the repeat count from getting into the menu. */
 void btn::state(boolean state, boolean clearMenu){
 	if(state){
     if(press == false){
