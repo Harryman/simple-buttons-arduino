@@ -26,6 +26,7 @@ btn both(5, 500);// just use an already used button if you are using the
 uint8_t menuLvl = 0;
 
 void setup(){
+pinMode(3, OUTPUT);
 pinMode(4, OUTPUT);
 pinMode(5, OUTPUT);
 }
@@ -44,21 +45,16 @@ void btnChk(boolean cm){// checks button states
 }  
 
 void mainMenu(){ // main menu for after start up
-  btnChk(false);//
-  while(btn1.hold > 0 && btn2.hold < 1){
-    btnChk(false);//if you are holding button 1 only led 1 will light
-    digitalWrite(1,HIGH);
-  }
-  while(btn2.hold > 0 && btn2.hold < 1){
-    btnChk(false);//if you are holding button 2 only led 2 will light
-    digitalWrite(2,HIGH);
-  }
+  digitalWrite(1,btn1.press);
+  digitalWrite(2,btn2.press);
   if(both.hold){//When both are held for at least the ms defined in the setup (500)
     btnChk(true);//clears buttons states to false or unclicked
     menuLvl = 1;
     digitalWrite(3, HIGH);
   }
-  while(menuLvl == 1){//set shiftlight menu
+
+  // you could implement the different levels with if statements if you can't be blocking anything
+  while(menuLvl == 1){//This is would be a higher level menu
     btnChk(false);
     digitalWrite(4 , btn1.press);
     digitalWrite(5 , btn2.press);   
