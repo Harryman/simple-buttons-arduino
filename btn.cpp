@@ -55,6 +55,7 @@ void btn::state(boolean state, boolean clearMenu){
       lock = false; // set lock back to false, next round it will 
     }								// zero the time and not change commit to true
   }
+
   if(press == true){
     hold = press + ((millis()-time) / _repeatDelay); // press = 1
   }	// hold is 1 + number of times it has go through repeatDelay time

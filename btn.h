@@ -15,7 +15,7 @@ Harrison Stahl / The Everything Corp
 Beerfund(bitcoin): 1HGxiDZZPzj5ctKSni4xn9UVHYPu4BRuCQ
 9/9/13 */
 
-#ifdef btn_h
+#ifndef btn_h
 #define btn_h
 
 #include "Arduino.h"

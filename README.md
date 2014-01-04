@@ -5,8 +5,8 @@ A simple library that will help you use button interfaces, doesn't do any deboun
 
 ## Class Variables
 ##### `press`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`press = true` when `state = true`
-    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`press = true` when `state = true`. If `lock = true` this will still report the actual state of the `state` parameter. 
+
 ##### `hold`
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`hold = 1` when `state = true` and is incremented by 1 for every duration of `repeatDelay` that `state = true` and is reset when to 0 when `state = false`
   
