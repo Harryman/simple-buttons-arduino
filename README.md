@@ -13,6 +13,9 @@ A simple library that will help you use button interfaces, doesn't do any deboun
 ##### `lock`
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lock = true` until `state = false` after `state()` is called with `clearMenu = true`. This is very useful for differentiating between press or start of a combo hold.
 
+##### `commit`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`commit = true` when `state` transitions from `true` to `false`. When `commit = true` `hold` will still have valid data until `state()` is called again. This is useful if you don't want to wear out an EEPROM address by writing values on every increment.
+
 ## Function usage
 #####`btn(uint8 pin, uint16 repeatDelay) `
 
