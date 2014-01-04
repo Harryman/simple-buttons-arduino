@@ -3,6 +3,16 @@ simple-buttons-arduino
 
 A simple library that will help you use button interfaces, doesn't do any debounce bounce. Makes it easier to do holds, repeats, combinations of buttons ie to get into other menus, button canceling make you let up before it will trigger agian, makes for really responsive and smooth menues. All while using not using interrupts or delays. 
 
+## Class Variables
+##### `press`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`press = true` when `state = true`
+    
+##### `hold`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`hold = 1` when `state = true` and is incremented by 1 for every duration of `repeatDelay` that `state = true` and is reset when to 0 when `state = false`
+  
+##### `lock`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lock = true` until `state = false` after `state()` is called with `clearMenu = true`. This is very useful for differentiating between press or start of a combo hold.
+
 ## Function usage
 #####`btn(uint8 pin, uint16 repeatDelay) `
 
@@ -18,7 +28,7 @@ A simple library that will help you use button interfaces, doesn't do any deboun
 ______________________________________
 #####`state(bool state, bool clearMenu)`
   
-  `state()` function will update the class variables `hold` and `press`. `hold` will return 1 if a button is pressed but has not been held for longer than `repeatDelay` it will then then increment by one for every duration of `repeatDelay` that that `state = true`. `press` varible will return true whenever `state = true`
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`state()` function will update the class variables `hold` and `press`. `hold` will return 1 if a button is pressed but has not been held for longer than `repeatDelay` it will then then increment by one for every duration of `repeatDelay` that that `state = true`. `press` varible will return true whenever `state = true`
 * `state`
   
   All of the data is generated based on when this state changes to true, you could put in `btn1.press && btn2.press` to beable to determine if both are being pressed and how long both are held together.
