@@ -1,7 +1,7 @@
 simple-buttons-arduino
 ======================
 
-A simple library that will help you use button interfaces, doesn't do any debounce bounce. Makes it easier to do holds, repeats, combinations of buttons ie to get into other menus, button canceling make you let up before it will trigger agian, makes for really responsive and smooth menues. All while using not using interrupts or delays. 
+A simple library that will help you use button interfaces, doesn't do any debounce. Makes it easier to do holds, repeats, combinations of buttons, e.g. to get into other menus button canceling force you let up before it will trigger agian, makes for really responsive and smooth menues. All while using not using interrupts or delays. MUST be in a looping part of code, it only runs once per invocation sampling frequency is limited by the speed of loop it is put in. 
 
 ## Class Variables
 ##### `press`
